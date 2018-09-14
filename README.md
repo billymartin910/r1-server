@@ -23,3 +23,33 @@ git clone https://github.com/farkhodsadykov/r1soft-ansible
 cd r1soft-ansible
 ansible-playbook -i hosts r1soft.yml
 ```
+
+
+## Installing R1soft agent on Windows
+This ansible playbook will install R1soft agent on Windows machines. Please follow the steps
+
+Step 1 Install python on windows machines
+
+Step3 Install winrm on ansible master
+```
+pip install pywinrm
+```
+
+Step 2 Specify the hosts inside inventory file
+cat hosts
+```
+[windows]
+54.242.150.159
+[windows:vars]
+ansible_user=Administrator
+ansible_password=r!iE9G8IuOex?8lHlKs=?eEflUk?tnIK
+ansible_connection=winrm
+ansible_port=5986
+ansible_winrm_server_cert_validation=ignore
+```
+
+Step 3 Run the playbook 
+
+```
+ansible-playbook r1soft_windows.yml
+```
