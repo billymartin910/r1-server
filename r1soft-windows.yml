@@ -1,0 +1,16 @@
+---
+- name: R1soft agent installation on windows server
+  hosts: windows
+  tasks:
+
+ # Copy server backup agent file to the windows hosts
+    - name: download the package
+      win_copy:
+        src: /root/ServerBackup-Windows-Agent-x64.msi
+        dest: C:\Agent\
+
+ # Install Server Backup Agent
+    - name: Install package
+      win_package:
+        path: C:\Agent\ServerBackup-Windows-Agent-x64.msi
+        state: present
