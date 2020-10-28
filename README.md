@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Installing R1soft agent on CentOS6, CentOS7 and Ubuntu
 This ansible playbook will install R1soft agent. Please follow the steps
 
@@ -61,3 +62,6 @@ ansible-playbook r1soft_windows.yml
 =======
 # ansible-r1-server
 >>>>>>> 301566190fd86a52a3d1aa0d879539875a40856b
+=======
+# r1-server
+>>>>>>> e943011a8cc78f3add3c99a1fdb7e95b15865843
