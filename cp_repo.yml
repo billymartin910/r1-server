@@ -1,7 +1,0 @@
-- hosts: all   
-  tasks: 
-    - name: Copy repo to remote system   #4 
-      when: ansible_os_family == "RedHat"
-      copy:
-        src: /etc/yum.repos.d/r1soft.repo
-        dest: /etc/yum.repos.d/r1soft.repo
