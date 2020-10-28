@@ -1,0 +1,33 @@
+- hosts: r1soft   
+  tasks: 
+    - name: Copy repo to remote system   #4 
+      when: ansible_os_family == "RedHat"
+      copy:
+        src: /etc/yum.repos.d/r1soft.repo
+        dest: /etc/yum.repos.d/r1soft.rep
+
+
+
+    - name: Install r1soft agent
+      when: ansible_os_family == "RedHat"
+      yum: 
+       name: serverbackup-enterprise-agent
+
+
+
+    - name: Start r1soft agent 
+      when: ansible_distribution_major_version == "7"   
+      command: "/etc/init.d/cdp-agent start"   
+
+
+    - name: Get key from server
+      command: "r1soft-setup --get-key   http://18.204.3.165" 
+
+
+    - name: Open port for 1167 on centos 7 
+      when: ansible_distribution_major_version == "7"
+      firewalld:
+        port: 1167/tcp
+        permanent: true
+        state: enabled
+      ignore_errors: true 
