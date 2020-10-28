@@ -1,4 +1,0 @@
-- hosts: all   
-  tasks:
-    - name: Get key from server
-      command: "r1soft-setup --get-key   http://206.81.13.161:8080"
