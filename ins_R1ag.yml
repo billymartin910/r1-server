@@ -1,6 +1,0 @@
-- hosts: all
-  tasks:  
-    - name: Install r1soft agent
-      when: ansible_os_family == "RedHat"
-      yum: 
-        name: serverbackup-enterprise-agent
