@@ -1,0 +1,5 @@
+[r1soft]
+18.204.3.165 ansible_user=centos
+
+[remote-hosts]
+3.87.57.120 ansible_user=centos
