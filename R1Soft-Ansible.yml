@@ -4,7 +4,6 @@
   connection: ssh
   tasks:
 
-# Copy repo file from ansible master to remote hosts
     - name: Create repo file
       when: ansible_os_family == "RedHat"
       copy:
@@ -13,17 +12,15 @@
         owner: root
         group: root
 
-# Install r1soft agent on the remote hosts "RedHat"
     - name: Install Agent
       when: ansible_os_family == "RedHat"
       package:
         name: serverbackup-enterprise-agent
         state: installed
 
-# Add the Server's key to the Agent's configuration
     - name: Get key from server
       when: ansible_os_family == "RedHat"
-      command: "r1soft-setup --get-key http://104.248.112.31:8080"
+      command: "r1soft-setup --get-key http://18.204.3.165"
 
 
 # Restart the cdp-agent on CentOS6 distribution
@@ -34,7 +31,6 @@
         state: restarted
 
 
-# Restart the cdp-agent on CentOS7 distribution
     - name: Restart R1soft agent
       when: (ansible_distribution == "Centos" and ansible_distribution_major_version == "7")
       systemd:
@@ -60,13 +56,12 @@
     - name: Next command
       when: ansible_distribution == "Ubuntu"
       command: "apt-get update"
-# Install R1soft agent
+    
     - name: Install agent
       when: ansible_distribution == "Ubuntu"
       apt:
         name: "r1soft-cdp-enterprise-agent"
         state: present
 
-# Getting the key from R1soft server
     - name: Get Key From Server
-      command: "r1soft-setup --get-key http://104.248.112.31:8080"
+      command: "r1soft-setup --get-key http://18.204.3.165"
