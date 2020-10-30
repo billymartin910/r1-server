@@ -6,8 +6,11 @@ Step: 1
 
 
 cd /etc/yum.repos.d
+
 vi /etc/yum.repos.d/r1soft.repo 
+
 [r1soft]
+
 name=R1Soft Repository Server
 baseurl=http://repo.r1soft.com/yum/stable/$basearch/
 enabled=1
