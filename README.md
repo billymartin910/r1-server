@@ -4,6 +4,8 @@ The first thing you will need to do is install the r1 server. To do this you wil
 
 Step: 1
 
+
+cd /etc/yum.repos.d
 vi /etc/yum.repos.d/r1soft.repo 
 [r1soft]
 name=R1Soft Repository Server
@@ -11,7 +13,6 @@ baseurl=http://repo.r1soft.com/yum/stable/$basearch/
 enabled=1
 gpgcheck=0
 
-cd /etc/yum.repos.d
 sudo yum install r1soft-cdp-enterprise-server -y
 
 Step: 2
