@@ -11,6 +11,7 @@ baseurl=http://repo.r1soft.com/yum/stable/$basearch/
 enabled=1
 gpgcheck=0
 
+cd /etc/yum.repos.d
 sudo yum install r1soft-cdp-enterprise-server -y
 
 Step: 2
